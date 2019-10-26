@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import Move from 'src/app/models/Move';
-import { UserService } from '../../services/user.service'
+import { UserService } from '../../services/user.service';
 import User from 'src/app/models/User';
 
 @Component({
@@ -9,16 +9,14 @@ import User from 'src/app/models/User';
   styleUrls: ['./moves-list.component.scss']
 })
 export class MovesListComponent implements OnInit {
-  @Input() user: User[];
+  moves: Move[];
 
-  @Input() moves: Move[];
-
-
-  constructor(private userService :UserService) { }
+  constructor(private userService: UserService) {}
 
   ngOnInit() {
     this.userService.moves.subscribe(showMoves => {
       this.moves = showMoves;
+
     });
     console.log(this.moves);
   }
