@@ -11,13 +11,17 @@ import User from 'src/app/models/User';
 export class MovesListComponent implements OnInit {
   moves: Move[];
 
+  @Input() showAll : Boolean = false;
+
   constructor(private userService: UserService) {}
+
+  toggleShowAll() {
+    this.showAll = !this.showAll;
+  }
 
   ngOnInit() {
     this.userService.moves.subscribe(showMoves => {
-      this.moves = showMoves;
-
+      this.moves = this.showAll ? showMoves : showMoves.slice(-3);
     });
-    console.log(this.moves);
   }
 }

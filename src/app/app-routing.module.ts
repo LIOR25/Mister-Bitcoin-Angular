@@ -7,18 +7,30 @@ import { ContactDetailsPageComponent } from './pages/contact-details-page/contac
 import { ContactEditPageComponent } from './pages/contact-edit-page/contact-edit-page.component';
 import { StatisticComponent } from './pages/statistic/statistic.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { UserAuth } from './models/UserAuth';
 
 
 const routes: Routes = [
-  {path: 'home' , component: HomePageComponent},
-  {path: 'contacts' , component: ContactPageComponent },
-  {path: 'contact/edit' , component: ContactEditPageComponent},
-  {path: 'contact/:id' , component: ContactDetailsPageComponent},
-  {path: 'statistic' , component: StatisticComponent},
-  {path: 'signup' , component: SignupComponent},
+  { path: 'home', component: HomePageComponent, canActivate: [UserAuth] },
+  {
+    path: 'contacts',
+    component: ContactPageComponent,
+    canActivate: [UserAuth]
+  },
+  {
+    path: 'contact/edit',
+    component: ContactEditPageComponent,
+    canActivate: [UserAuth]
+  },
+  {
+    path: 'contact/:id',
+    component: ContactDetailsPageComponent,
+    canActivate: [UserAuth]
+  },
+  { path: 'statistic', component: StatisticComponent },
+  { path: 'signup', component: SignupComponent },
 
-
-  {path: '' , redirectTo: 'home', pathMatch: 'full'},
+  { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
 @NgModule({

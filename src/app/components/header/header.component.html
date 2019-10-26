@@ -1,5 +1,4 @@
-
-<div class="ui secondary  menu">
+<div class="ui fixed menu">
     <a routerLink="/home" class="active item">
         Home
     </a>
@@ -9,13 +8,11 @@
     <a routerLink="statistic" class="item">
         Statistics
     </a>
-    <a routerLink="signup" class="item">
-        Signup
-    </a>
     <div class="right menu">
-        <div class="item">
-        </div>
-        <a routerLink="signup" class="ui item">
+        <a *ngIf="!isLogged" routerLink="signup" class="item">
+            Signup
+        </a>
+        <a *ngIf="isLogged"(click)="onLogout()" class="ui item">
             Logout
         </a>
     </div>

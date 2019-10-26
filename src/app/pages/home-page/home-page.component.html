@@ -5,29 +5,29 @@
  -->
 
 
- 
- <div class="ui one column stackable center aligned page grid">
-     <!-- <div class="column twelve wide"> -->
-         <div class="user">
-<div class="ui blue card">
+<div class="ui one column stackable center aligned page grid">
+    <!-- <div class="column twelve wide"> -->
+    <div class="user">
+        <div class="ui blue card">
 
-    <div class="content">
-        <p class="header">Hello {{user.name}}</p>
+            <div class="content">
+                <p class="header">Hello {{user.name}}</p>
 
-        <div class="description">
-            Your Coins: {{user.coins}}
+                <div class="description">
+                    Your Coins: {{user.coins}}
+                </div>
+            </div>
+            <div class="extra content">
+                <p>
+                    <i class="btc icon"></i>
+                    {{userRate}}
+                </p>
+            </div>
         </div>
     </div>
-    <div class="extra content">
-        <p>
-            <i class="btc icon"></i>
-            {{userRate}}
-        </p>
-    </div>
-</div>     </div>
- </div>
+</div>
 
- <br>
+<br>
 <br>
 
-<app-moves-list></app-moves-list>
+<app-moves-list [showAll]="true"></app-moves-list>
