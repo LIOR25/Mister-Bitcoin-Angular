@@ -1,0 +1,3 @@
+interface FilterModel {
+  term: string;
+}

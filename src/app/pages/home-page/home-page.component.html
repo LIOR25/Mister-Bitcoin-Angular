@@ -1,0 +1,33 @@
+<!-- 
+<p>Hello {{user.name}}</p>
+<p>Your Coins: {{user.coins}}</p>
+<p> <i class="btc icon"></i> : {{userRate}} </p>
+ -->
+
+
+ 
+ <div class="ui one column stackable center aligned page grid">
+     <!-- <div class="column twelve wide"> -->
+         <div class="user">
+<div class="ui blue card">
+
+    <div class="content">
+        <p class="header">Hello {{user.name}}</p>
+
+        <div class="description">
+            Your Coins: {{user.coins}}
+        </div>
+    </div>
+    <div class="extra content">
+        <p>
+            <i class="btc icon"></i>
+            {{userRate}}
+        </p>
+    </div>
+</div>     </div>
+ </div>
+
+ <br>
+<br>
+
+<app-moves-list [moves]="moves"></app-moves-list>
