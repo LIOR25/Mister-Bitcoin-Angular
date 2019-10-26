@@ -46,8 +46,7 @@ import { MovesListComponent } from './components/moves-list/moves-list.component
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    GoogleChartsModule
-
+    GoogleChartsModule  
   ],
   providers: [UserService , BitcoinService, StorageService],
   bootstrap: [AppComponent]

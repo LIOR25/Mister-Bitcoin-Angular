@@ -3,6 +3,7 @@ import Contact from 'src/app/models/Contact';
 import Move from 'src/app/models/Move';
 import { UserService } from '../../services/user.service'
 import User from 'src/app/models/User';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -11,32 +12,28 @@ import User from 'src/app/models/User';
   styleUrls: ['./transfer-fund.component.scss']
 })
 export class TransferFundComponent implements OnInit {
-
-@Input() contact: Contact;
+  @Input() contact: Contact;
   @Input() user: User;
-  moves: Move[] = []
 
-  constructor(private userService: UserService) { }
+  moves: Move[] = [];
 
+  constructor(private userService: UserService) {}
 
-
-  handleAmountInput = (event) =>{
-      console.log(event.target.value);
-          this.userService.addMove(this.contact, event.target.value)
-  }
+  handleSubmit = (form: NgForm) => {
+    this.userService.addMove(this.contact, form.value.amount);
+  };
 
   ngOnInit() {
-   this.userService.currentUser.subscribe(contact =>{
-     this.contact = contact;
-     console.log(this.contact,'this.contact');
-}) 
-   this.userService.moves.subscribe(showMoves =>{
-     this.moves = showMoves
-     console.log( this.moves,' this.moves');
-     
-    })
-
-   }
+    this.userService.currentUser.subscribe(contact => {
+      this.contact = contact;
+      console.log(this.contact, 'this.contact');
+    });
+    this.userService.moves.subscribe(showMoves => {
+      this.moves = showMoves;
+      console.log(this.moves, ' this.moves');
+    });
   }
+}
+
 
 

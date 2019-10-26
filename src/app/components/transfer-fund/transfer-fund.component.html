@@ -18,8 +18,11 @@
     </div>
 </div> -->
 
-    <div class="column">
-        <div class="ui card">
+    <form 
+        class="column" 
+        #form="ngForm"
+        (ngSubmit)="handleSubmit(form)">
+        <div class="ui card">   
             <div class="content">
                 <div class="header">Transfer coins to :</div>
             </div>
@@ -29,9 +32,9 @@
                     <div class="event">
                         <div class="content">
                             <div class="summary">
-
-                                
-                    Amount   <input class="amount" type="number" name="amount" (input)="handleAmountInput($event)" />                             </div>
+                                Amount
+                                <input class="amount" type="number" name="amount" ngModel>
+                            </div>
                         </div>
                     </div>
                   
@@ -43,7 +46,7 @@
 
             </div>
         </div>
-    </div>
+    </form>
 
 
     <!-- onChange={this.handleChange} value={$event} -->
