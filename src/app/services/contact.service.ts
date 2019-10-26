@@ -190,11 +190,7 @@ export class ContactService {
   }
 
   private _addContact(contact: Contact) {
-    const newContact = new Contact(
-      contact.name,
-      contact.email,
-      contact.phone
-    );
+    const newContact = new Contact(contact.name, contact.email, contact.phone);
     newContact.setId();
     this.contacts.push(newContact);
     this.contactsSubject.next(this.contacts);

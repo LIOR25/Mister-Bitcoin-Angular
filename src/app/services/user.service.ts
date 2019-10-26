@@ -12,27 +12,13 @@ import { ActivatedRoute, Router } from '@angular/router';
   providedIn: 'root'
 })
 export class UserService {
-  currentUser = new BehaviorSubject<Contact>(null);
-
+  currentUser = new BehaviorSubject<User>(null);
   user = new BehaviorSubject<User>({} as User);
   moves = new BehaviorSubject<Move[]>([]);
-  currContactId: Contact;
 
   constructor(private storageService: StorageService, private router: Router) {
     this.loadUser();
   }
-
-  // loadUser(){
-  //   this.currentUser.next(new Contact('Lior','lior@lis.com','1000000',100))
-  // }
-
-  // singup(name){
-  //   let user = this.storageService.load('userName');
-  //     if(name === user) return user;
-  // this.storageService.save('userName', name);
-  //   return name
-
-  // }
 
   loadUser() {
     const currentUser = this.storageService.load('userName');
@@ -40,7 +26,6 @@ export class UserService {
       this.currentUser.next(currentUser);
       this.moves.next(currentUser.moves);
     }
-    // this.followUserMove(this.currentUser, contactId)
   }
 
   singup(name) {
@@ -58,17 +43,6 @@ export class UserService {
     this.moves.next([]);
   }
 
-  followUserMove(user, compairToId) {
-    if (!user) return;
-
-    if (compairToId) {
-      const userMoves = user.moves.filter(move => move.toId === compairToId);
-      this.moves.next(userMoves);
-    } else {
-      this.moves.next(user.moves);
-    }
-  }
-
   addMove(contact, amount) {
     const user = this.storageService.load('userName');
     const newAmount = user.coins - amount;
@@ -80,7 +54,6 @@ export class UserService {
       console.log('Cant Use This Amount');
       return;
     }
-
     user.coins = newAmount;
     const move = {
       toId: contact._id,
@@ -88,12 +61,8 @@ export class UserService {
       at: moment().format('LLLL'),
       amount: amount
     };
-    this.currContactId = move.toId;
     user.moves.push(move);
     this.storageService.save('userName', user);
-
-    this.followUserMove(user, this.currContactId);
-    console.log(user.moves, 'user.moves');
-    console.log(this.moves, 'moves');
+    this.moves.next(user.moves);
   }
 }

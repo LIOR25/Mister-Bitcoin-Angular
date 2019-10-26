@@ -1,6 +1,6 @@
 <div class="ui segment">
   <div class="ui two column very relaxed grid">
-    <div class="column">
+    <div class="column border">
       <div class="contact-details">
         <div class="ui card">
           <div class="image">
@@ -10,7 +10,6 @@
             <div class="header">
               {{ currContact.name }}
             </div>
-
             <br>
             <div class="description">
               {{ currContact.email }}
@@ -20,28 +19,17 @@
             <div class="description">
               {{ currContact.phone }}
             </div>
-
             <br>
             <div class="ui large buttons">
               <button class="ui primary basic button" routerLink="/contacts">Back</button>
-              <!-- <div class="or"></div> -->
               <a [routerLink]="['/contact/edit', { id: currContact._id }]"><button
                   class="ui primary basic button">Edit</button></a>
-              <!-- <div class="or"></div> -->
               <button class="ui red basic button" (click)='deleteContact(currContact._id)'>Delete</button>
-
             </div>
-            <!-- 
-          <button class="ui primary basic button"  routerLink="/contacts" >Back</button>
-          <a [routerLink]="['/contact/edit', { id: currContact._id }]"><button class="ui primary basic button">Edit</button></a>
-          <button class="ui red basic button" (click)='deleteContact(currContact._id)' >Delete</button> -->
           </div>
         </div>
       </div>
     </div>
-
-    <!-- <app-transfer-fund [contact]="contact" [user]="user"></app-transfer-fund> -->
-
     <div class="ui one column stackable center aligned page grid">
       <div class="column twelve wide">
 
@@ -49,20 +37,8 @@
 
       </div>
     </div>
-
   </div>
-  <!-- <div> -->
-  <div class="ui vertical divider">
-
-  </div>
+  <div>
 </div>
-
-
-
-
 <br>
-<!-- <app-transfer-fund [contact]="contact" [user]="user"></app-transfer-fund> -->
-
-
-
-<app-moves-list ></app-moves-list>
+<app-moves-list></app-moves-list>

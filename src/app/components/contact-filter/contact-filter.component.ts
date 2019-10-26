@@ -6,17 +6,14 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./contact-filter.component.scss']
 })
 export class ContactFilterComponent implements OnInit {
-
   @Input() public onFilter: Function = null;
 
-  constructor() { }
+  constructor() {}
 
-  handleInput = (event) =>
+  handleInput = event =>
     this.onFilter({
-      term: event.target.value,
+      term: event.target.value
     });
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

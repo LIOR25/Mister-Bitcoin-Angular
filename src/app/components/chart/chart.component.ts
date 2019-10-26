@@ -9,9 +9,7 @@ import { Chart } from 'src/app/models/Chart';
 export class ChartComponent implements OnInit {
   @Input() chartData: Chart;
 
-  
-
- currentChartData: any = {
+  currentChartData: any = {
     title: null,
     type: null,
     data: [],
@@ -21,12 +19,7 @@ export class ChartComponent implements OnInit {
     height: null
   };
 
-
-
-
-
   assignChartData() {
-    console.log(this.chartData);
     let chartData = this.chartData.values.map(value => {
       const date = new Date(value.x * 1000);
       const arrangedDate = `${date.getDate()}/${date.getMonth() + 1}`;
@@ -49,10 +42,5 @@ export class ChartComponent implements OnInit {
 
   ngOnInit() {
     this.assignChartData();
-    console.log(this.currentChartData);
   }
 }
-
-
-
-   

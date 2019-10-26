@@ -12,10 +12,9 @@ export class SignupComponent {
 
   constructor(private userService: UserService) {}
 
-  handleSubmit = (form : NgForm) => {
+  handleSubmit = (form: NgForm) => {
     if (form.value.username) {
       this.userService.singup(form.value.username);
-      console.log(form.value.username);
-    } 
+    }
   };
 }

@@ -11,7 +11,7 @@ import User from 'src/app/models/User';
 export class MovesListComponent implements OnInit {
   moves: Move[];
 
-  @Input() showAll : Boolean = false;
+  @Input() showAll: Boolean = false;
 
   constructor(private userService: UserService) {}
 

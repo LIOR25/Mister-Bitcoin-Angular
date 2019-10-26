@@ -12,31 +12,21 @@ export class BitcoinService {
     private storageService: StorageService
   ) {}
 
-  // public getRate(coins): Observable<any> {
-  //   const rate = `https://blockchain.info/tobtc?currency=USD&value=${coins}&cors=true`;
-  //   return this.http.get(rate);
-  // }
+  public getRate(coins): Observable<any> {
+    const rateUrl = `https://blockchain.info/tobtc?currency=USD&value=${coins}&cors=true`;
+    return this.http.get(rateUrl);
+  }
 
-  // public getMarketPrice(): Observable<any> {
-  //   const marketPrice =
-  //     'https://api.blockchain.info/charts/market-price?format=json&cors=true';
-  //   return this.http.get(marketPrice);
-  // }
+  public getMarketPrice(): Observable<any> {
+    const marketPriceUrl =
+      'https://api.blockchain.info/charts/market-price?format=json&cors=true';
+    return this.http.get(marketPriceUrl);
+  }
 
-  // public getMarketPrice(): Observable<any> {
-  //     let marketPrice = this.storageService.load('priceRate')
-  //   if(marketPrice) return marketPrice;
+  public getConfirmedTransactions(): Observable<any> {
+    const transactionsUrl =
+      'https://api.blockchain.info/charts/n-transactions?format=json&cors=true';
 
-  //    marketPrice = 'https://api.blockchain.info/charts/market-price?format=json&cors=true';
-  //   this.storageService.save('priceRate',marketPrice)
-  //    return this.http.get(marketPrice)
-  // }
-
-  // public getConfirmedTransactions(): Observable<any> {
-  //   const transactions =
-  //     'https://api.blockchain.info/charts/n-transactions?format=json&cors=true';
-  //   console.log(transactions, 'ser');
-
-  //   return this.http.get(transactions);
-  // }
+    return this.http.get(transactionsUrl);
+  }
 }

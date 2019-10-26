@@ -7,17 +7,12 @@ import Contact from 'src/app/models/Contact';
   styleUrls: ['./contact-preview.component.scss']
 })
 export class ContactPreviewComponent implements OnInit {
-@Input() contact: Contact = null; 
+  @Input() contact: Contact = null;
 
-  constructor() { }
+  constructor() {}
 
-  
   get userImg() {
     return 'https://robohash.org/' + this.contact._id;
   }
-  ngOnInit() {
-  }
-
-  
-
+  ngOnInit() {}
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BitcoinService  } from '../../services/bitcoin.service'
+import { BitcoinService } from '../../services/bitcoin.service';
 import { from } from 'rxjs';
 
 @Component({
@@ -8,9 +8,8 @@ import { from } from 'rxjs';
   styleUrls: ['./statistic.component.scss']
 })
 export class StatisticComponent implements OnInit {
-
- marketPriceData = null;
- transcPerDay = null;
+  marketPriceData = null;
+  transcPerDay = null;
 
   constructor(private BitCoinService: BitcoinService) {}
 
@@ -18,11 +17,8 @@ export class StatisticComponent implements OnInit {
     this.BitCoinService.getMarketPrice().subscribe(data => {
       this.marketPriceData = data;
     });
-    this.BitCoinService.getConfirmedTransactions().subscribe(data=>{
-   this.transcPerDay = data;
-   console.log(this.transcPerDay,'transaction');
-   
-    })
-  
+    this.BitCoinService.getConfirmedTransactions().subscribe(data => {
+      this.transcPerDay = data;
+    });
   }
 }

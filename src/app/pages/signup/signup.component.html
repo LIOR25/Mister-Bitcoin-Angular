@@ -1,14 +1,3 @@
-<!-- <form class="ui big form" >
-    <div class="two fields">
-        <div class="field">
-            <label>Please Enter Your Name</label>
-            <input placeholder="name" type="text" (input)="handleUserInput($event)">
-        </div>
-    </div>
-    <button type="submit" class="ui submit button"  routerLink="/home">Sign up</button>
-</form> -->
-
-
 <div class="ui one column stackable center aligned page grid">
     <div class="column twelve wide">
         <form #form="ngForm" (ngSubmit)="handleSubmit(form)" class="ui placeholder segment">
@@ -22,26 +11,10 @@
                                 <i class="user icon"></i>
                             </div>
                         </div>
-                        <!-- <div class="field">
-                    <label>Password</label>
-                    <div class="ui left icon input">
-                        <input type="password">
-                        <i class="lock icon"></i>
-                    </div>
-                </div> -->
                         <button class="ui blue submit button">Login</button>
                     </div>
                 </div>
-                <!-- <div class="middle aligned column">
-            <div class="ui big button">
-                <i class="signup icon"></i>
-                Sign Up
             </div>
-        </div> -->
-            </div>
-            <!-- <div class="ui vertical divider">
-        Or
-    </div> -->
         </form>
     </div>
 </div>

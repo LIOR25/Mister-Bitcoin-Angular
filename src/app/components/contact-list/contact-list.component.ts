@@ -7,11 +7,9 @@ import Contact from 'src/app/models/Contact';
   styleUrls: ['./contact-list.component.scss']
 })
 export class ContactListComponent implements OnInit {
-@Input() contacts: Contact[] = null; 
+  @Input() contacts: Contact[] = null;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
