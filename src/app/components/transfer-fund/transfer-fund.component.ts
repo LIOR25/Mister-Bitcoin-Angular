@@ -13,7 +13,8 @@ import { NgForm } from '@angular/forms';
 })
 export class TransferFundComponent implements OnInit {
   @Input() contact: Contact;
-  @Input() user: User;
+  @Input() maxCoins: Number;
+  @Input() onTransferCoins: Function;
 
   moves: Move[] = [];
 
@@ -24,10 +25,6 @@ export class TransferFundComponent implements OnInit {
   };
 
   ngOnInit() {
-    this.userService.currentUser.subscribe(contact => {
-      this.contact = contact;
-      console.log(this.contact, 'this.contact');
-    });
     this.userService.moves.subscribe(showMoves => {
       this.moves = showMoves;
       console.log(this.moves, ' this.moves');
