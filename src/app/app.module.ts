@@ -23,6 +23,7 @@ import { StorageService } from './services/storage.service';
 import { SignupComponent } from './pages/signup/signup.component';
 import { TransferFundComponent } from './components/transfer-fund/transfer-fund.component';
 import { MovesListComponent } from './components/moves-list/moves-list.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -39,16 +40,17 @@ import { MovesListComponent } from './components/moves-list/moves-list.component
     ChartComponent,
     SignupComponent,
     TransferFundComponent,
-    MovesListComponent,
+    MovesListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    GoogleChartsModule  
+    GoogleChartsModule,
+    [SweetAlert2Module.forRoot()]
   ],
-  providers: [UserService , BitcoinService, StorageService],
+  providers: [UserService, BitcoinService, StorageService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

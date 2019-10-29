@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import Contact from '../models/Contact';
-import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
 import { StorageService } from './storage.service';
 import * as moment from 'moment';
 import User from '../models/User';
 import Move from '../models/Move';
-import { ActivatedRoute, Router } from '@angular/router';
+import {  Router } from '@angular/router';
+import Swal from 'sweetalert2';
+
 
 @Injectable({
   providedIn: 'root'
@@ -47,11 +47,21 @@ export class UserService {
     const user = this.storageService.load('userName');
     const newAmount = user.coins - amount;
     if (newAmount < 0) {
-      console.log('Not enough money');
+        Swal.fire({
+          title: 'Error!',
+          text: 'Not enough money',
+          type: 'error',
+          confirmButtonText: 'ok'
+        });
       return;
     }
     if (amount <= 0) {
-      console.log('Cant Use This Amount');
+      Swal.fire({
+        title: 'Error!',
+        text: 'Cant Use This Amount',
+        type: 'error',
+        confirmButtonText: 'ok'
+      });
       return;
     }
     user.coins = newAmount;

@@ -22,6 +22,7 @@ export class TransferFundComponent implements OnInit {
   handleSubmit = (form: NgForm) => {
     this.userService.addMove(this.contact, form.value.amount);
     form.controls.amount.setValue('');
+    
   };
 
   ngOnInit() {
