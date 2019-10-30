@@ -13,7 +13,6 @@ import Swal from 'sweetalert2';
 })
 export class UserService {
   currentUser = new BehaviorSubject<User>(null);
-  user = new BehaviorSubject<User>({} as User);
   moves = new BehaviorSubject<Move[]>([]);
 
   constructor(private storageService: StorageService, private router: Router) {
@@ -21,15 +20,17 @@ export class UserService {
   }
 
   loadUser() {
-    const currentUser = this.storageService.load('userName');
-    if (currentUser) {
+    const storedUser = this.storageService.load('userName');
+    if (storedUser) {
+      const { name, coins, moves } = storedUser;
+      const currentUser = new User(name, coins, moves);
       this.currentUser.next(currentUser);
       this.moves.next(currentUser.moves);
     }
   }
 
   singup(name) {
-    const newUser = new User(name, '', '', 100, []);
+    const newUser = new User(name, 100, []);
     this.storageService.save('userName', newUser);
     this.currentUser.next(newUser);
     this.moves.next(newUser.moves);
@@ -44,15 +45,15 @@ export class UserService {
   }
 
   addMove(contact, amount) {
-    const user = this.storageService.load('userName');
+    const user = this.currentUser.value;
     const newAmount = user.coins - amount;
     if (newAmount < 0) {
-        Swal.fire({
-          title: 'Error!',
-          text: 'Not enough money',
-          type: 'error',
-          confirmButtonText: 'ok'
-        });
+      Swal.fire({
+        title: 'Error!',
+        text: 'Not enough money',
+        type: 'error',
+        confirmButtonText: 'ok'
+      });
       return;
     }
     if (amount <= 0) {
@@ -65,14 +66,13 @@ export class UserService {
       return;
     }
     user.coins = newAmount;
-    const move = {
+    user.moves.push({
       toId: contact._id,
       to: contact.name,
       at: moment().format('LLLL'),
       amount: amount
-    };
-    user.moves.push(move);
-    this.storageService.save('userName', user);
+    });
     this.moves.next(user.moves);
+    this.storageService.save('userName', user);
   }
 }

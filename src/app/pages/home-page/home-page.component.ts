@@ -13,7 +13,7 @@ import User from 'src/app/models/User';
 })
 export class HomePageComponent implements OnInit, OnDestroy {
   user: User;
-  subscription: Subscription;
+  subscriptions: Subscription[] = [];
   bitcoinRate = null;
   moves: Move[] = [];
   title = 'Your Bitcoin-wallet';
@@ -25,16 +25,16 @@ export class HomePageComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.subscription = this.userService.currentUser.subscribe(user => {
-      this.user = user;
-    });
-    this.bitcoinService.getRate(1).subscribe(rate => {
-      this.bitcoinRate = rate;
-    });
-    this.userService.moves.subscribe(showMoves => (this.moves = showMoves));
+    this.subscriptions.push(
+      this.userService.currentUser.subscribe(user => (this.user = user)),
+      this.bitcoinService
+        .getRate(1)
+        .subscribe(rate => (this.bitcoinRate = rate)),
+      this.userService.moves.subscribe(showMoves => (this.moves = showMoves))
+    );
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.subscriptions.forEach(s => s.unsubscribe());
   }
 }
