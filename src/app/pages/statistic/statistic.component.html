@@ -1,6 +1,12 @@
 <app-chart *ngIf="marketPriceData" [chartData]="marketPriceData"> </app-chart>
 <app-chart *ngIf="transcPerDay" [chartData]="transcPerDay"></app-chart>
 
-<h1 *ngIf="!marketPriceData ">
-    Loading...
-</h1>
+<div *ngIf="!marketPriceData ">
+   
+<div class="ui segment load">
+    <div class="ui active dimmer">
+        <div class="ui massive text loader">Loading</div>
+    </div>
+  
+</div>
+</div>

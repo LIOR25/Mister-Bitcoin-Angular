@@ -11,13 +11,13 @@ export class StatisticComponent implements OnInit {
   marketPriceData = null;
   transcPerDay = null;
 
-  constructor(private BitCoinService: BitcoinService) {}
+  constructor(private bitCoinService: BitcoinService) {}
 
   ngOnInit() {
-    this.BitCoinService.getMarketPrice().subscribe(data => {
+    this.bitCoinService.getMarketPrice().subscribe(data => {
       this.marketPriceData = data;
     });
-    this.BitCoinService.getConfirmedTransactions().subscribe(data => {
+    this.bitCoinService.getConfirmedTransactions().subscribe(data => {
       this.transcPerDay = data;
     });
   }
