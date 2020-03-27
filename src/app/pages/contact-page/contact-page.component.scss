@@ -3,6 +3,43 @@
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
-.button {
-  margin-left: 10px;
+.add-contact-btn{
+    background-color: #39396a;
+    :focus{
+        outline: none;
+    }
+    color: white;
+    font-size: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    z-index: 1;
+    opacity: 1;
+    transition: 0.3s;
+}
+
+.add-contact-btn:hover{
+        opacity: 0.8;  
+}
+
+.contact-page-container{
+    display: flex;
+    justify-content: center;
+
+}
+
+.list-container{
+    width: 500px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+
+.add-contact-container{
+    width: 60px;
+}
+
+.filter-container{
+    justify-content: center;
+    display: flex;
 }

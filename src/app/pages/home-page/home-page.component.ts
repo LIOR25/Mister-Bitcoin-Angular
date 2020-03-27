@@ -28,7 +28,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
     this.subscriptions.push(
       this.userService.currentUser.subscribe(user => (this.user = user)),
       this.bitcoinService
-        .getRate(1)
+        .getRate(this.user.coins)
         .subscribe(rate => (this.bitcoinRate = rate)),
       this.userService.moves.subscribe(showMoves => (this.moves = showMoves))
     );

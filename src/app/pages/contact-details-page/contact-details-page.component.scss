@@ -1,7 +1,43 @@
-.contact-details {
-  text-align: -webkit-center;
+.details-container {
+    text-align: center;
+    align-items: 'center';
+    justify-content: center;
+    margin: 0 auto;
 }
 
-.border {
-  border-right: 1px solid #ccc;
+.contact-img {
+    margin-top: 20px;
+    width: 125px;
 }
+
+h1 {
+    color: #2185d0;
+    font-weight: normal;
+}
+
+.contact-details {
+    color:white;
+    margin-bottom: 10px;
+}
+
+.user-transfer {
+    color: white;
+    align-content: l;
+    text-align: -webkit-center;
+}
+
+button:hover {
+        opacity: 0.8; 
+}
+
+.details-buttons-container {
+    align-items: 'center';
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10PX;
+}
+
+
+
+

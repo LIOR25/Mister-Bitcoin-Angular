@@ -1,23 +1,9 @@
-<form class="column" #form="ngForm" (ngSubmit)="handleSubmit(form)">
-    <div class="ui card">
-        <div class="content">
-            <div class="header">Transfer coins to :</div>
-        </div>
-        <div class="content">
-            <div class="ui small feed">
-                <div class="event">
-                    <div class="content">
-                        <div class="summary">
-                            Amount
-                            <input class="amount" type="number" name="amount" ngModel>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="extra content">
-            <button class="ui button" >
-  Transfer Coins</button>
-        </div>
+<div class="transfers-container">
+    <p class="transfer-title">Transfer Bit to {{contact.name}}</p>
+    <div class="transfers-input-container">
+        <form #form="ngForm" (ngSubmit)="handleSubmit(form)">
+            <input class="amount" type="number" name="amount" ngModel>
+            <button class="transfers-btn">Transfer</button>
+        </form>
     </div>
-</form>
+</div>

@@ -1,20 +1,8 @@
-<div class="ui one column stackable center aligned page grid">
-    <div class="column twelve wide">
-        <table class="ui inverted table">
-            <thead>
-                <tr>
-                    <th>To</th>
-                    <th>Amount</th>
-                    <th>At</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let move of moves">
-                    <td data-label="To">{{move.to}}</td>
-                    <td data-label="Amount">{{move.amount}}</td>
-                    <td data-label="At">{{move.at}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+<h3>Transfer history:</h3>
+<ul>
+    <li *ngFor="let move of moves" class="transfer-container">
+        <div> To: {{move.to}}</div>
+        <div>At: {{move.at}}</div>
+    <div> Amount: {{move.amount}}</div>
+    </li>
+</ul>

@@ -1,44 +1,21 @@
-<div class="ui segment">
-  <div class="ui two column very relaxed grid">
-    <div class="column border">
-      <div class="contact-details">
-        <div class="ui card">
-          <div class="image">
-            <img src="{{ userImg }}" alt="" />
-          </div>
-          <div class="content">
-            <div class="header">
-              {{ currContact.name }}
-            </div>
-            <br>
-            <div class="description">
-              {{ currContact.email }}
-            </div>
-
-            <br>
-            <div class="description">
-              {{ currContact.phone }}
-            </div>
-            <br>
-            <div class="ui large buttons">
-              <button class="ui primary basic button" routerLink="/contacts">Back</button>
-              <a [routerLink]="['/contact/edit', { id: currContact._id }]"><button
-                  class="ui primary basic button">Edit</button></a>
-              <button class="ui red basic button" (click)='deleteContact(currContact._id)'>Delete</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="ui one column stackable center aligned page grid">
-      <div class="column twelve wide">
-
-        <app-transfer-fund [contact]="currContact"></app-transfer-fund>
-
-      </div>
+<div class="details-container">
+  <div>
+    <img src="{{ userImg }}" class="contact-img" />
+  </div>
+  <div class="details-buttons-container">
+    <button class="ui primary basic button" routerLink="/contacts">Back</button>
+    <a [routerLink]="['/contact/edit', { id: currContact._id }]"><button
+        class="ui primary basic button">Edit</button></a>
+    <button class="ui red basic button" (click)='deleteContact(currContact._id)'>Delete</button>
+  </div>
+  <h1>{{currContact.name}}</h1>
+  <div class="contact-details">
+    <div>{{currContact.phone}}</div>
+    <div>{{ currContact.email }}
     </div>
   </div>
-  <div>
+  <section class="user-transfer">
+    <app-transfer-fund [contact]="currContact"></app-transfer-fund>
+    <app-moves-list></app-moves-list>
+  </section>
 </div>
-<br>
-<app-moves-list></app-moves-list>

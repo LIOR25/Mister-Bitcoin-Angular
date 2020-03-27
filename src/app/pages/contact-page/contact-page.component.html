@@ -1,14 +1,12 @@
-<div class="ui one column stackable center aligned page grid">
-    <div class="column twelve wide">
-        <header>
-            <app-contact-filter [onFilter]="handleFilter"></app-contact-filter>
-            <button [routerLink]="['/contact/edit']" class="circular ui icon button">
-                Add Contact
-            </button>
-        </header>
+<div class="container">
+    <app-contact-filter class="filter-container" [onFilter]="handleFilter">
+    </app-contact-filter>
+    <div class="contact-page-container">
+        <div class="list-container">
+            <app-contact-list class="list" [contacts]="contacts"></app-contact-list>
+        </div>
+        <div class="add-contact-container">
+            <button class="add-contact-btn circular ui icon button" routerLink="/contact/edit">+</button>
+        </div>
     </div>
 </div>
-<br>
-<br>
-<app-contact-list class="list" [contacts]="contacts">
-</app-contact-list>

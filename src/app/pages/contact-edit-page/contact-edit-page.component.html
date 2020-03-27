@@ -1,26 +1,23 @@
 <div class="contact-edit">
-    <div class="ui card">
-        <img src="{{ userImg }} " alt="" />
-        <div class="form-containar">
-            <div class="ui form">
-
-                <div class="field">
-                    <br>
-                    <label>Name</label>
-                    <input type="text" [(ngModel)]="currContact.name" placeholder="Name" />
-                </div>
-
-                <div class="field">
-                    <label>Email</label>
-                    <input type="text" [(ngModel)]="currContact.email" placeholder="Email" />
-                </div>
-                <div class="field">
-                    <label>Phone</label>
-                    <input type="text" [(ngModel)]="currContact.phone" placeholder="Phone" />
-                </div>
-                <button class="ui primary basic button" (click)="updateContact()">Submit</button>
-                <button class="ui primary basic button" routerLink="/contacts">Back</button>
-            </div>
+    <div>
+        <label>Name</label>
+        <div class="ui input focus">
+            <input type="text" [(ngModel)]="currContact.name" placeholder="Name">
         </div>
+    </div>
+    <label>Email</label>
+    <div class="ui input focus">
+        <input type="text" [(ngModel)]="currContact.email" placeholder="Email" />
+    </div>
+
+    <div>
+        <label>Phone</label>
+        <div class="ui input focus">
+            <input type="text" [(ngModel)]="currContact.phone" placeholder="Phone" />
+        </div>
+    </div>
+    <div class="button-container">
+        <button class="ui primary basic button" (click)="updateContact()">Submit</button>
+        <button class="ui primary basic button" routerLink="/contacts">Back</button>
     </div>
 </div>

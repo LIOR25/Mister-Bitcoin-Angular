@@ -1,19 +1,14 @@
-<div class="ui fixed menu">
-    <a routerLink="/home" class="active item">
-        Home
+<header class="main-nav">
+    <a exact class='main-nav-item' routerLink="/home" routerLinkActive="selected">
+        <i class="home icon"></i>  
     </a>
-    <a routerLink="contacts" class="item">
-        Contacts
+    <a class='main-nav-item' routerLink="/contacts" routerLinkActive="selected">
+<i class="address book icon"></i>
     </a>
-    <a routerLink="statistic" class="item">
-        Statistics
+    <a class='main-nav-item' routerLink="/statistic" routerLinkActive="selected">
+        <i class="chart line icon"></i>
     </a>
-    <div class="right menu">
-        <a *ngIf="!isLogged" routerLink="signup" class="item">
-            Signup
-        </a>
-        <a *ngIf="isLogged" (click)="onLogout()" class="ui item">
-            Logout
-        </a>
-    </div>
-</div>
+<a class='main-nav-item' *ngIf="isLogged" (click)="onLogout()" routerLink="/statistic" routerLinkActive="selected">
+    <i class="sign-out icon"></i>
+</a>
+</header>

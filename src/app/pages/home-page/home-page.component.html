@@ -1,24 +1,13 @@
-<h1>
-    Welcome to {{ title }}!
-</h1>
-<div class="ui one column stackable center aligned page grid">
-    <div class="user">
-        <div class="ui blue card">
-            <div class="content">
-                <p class="header">Hello {{user.name}}</p>
-                <div class="description">
-                    Your Coins: {{user.coins}}
-                </div>
-            </div>
-            <div class="extra content">
-                <p>
-                    <i class="btc icon"></i>
-                    {{bitcoinRate * user.coins}}
-                </p>
-            </div>
-        </div>
-    </div>
+<div class="homepage-container">
+    <section>
+        <h1>Welcome {{user.name}} </h1>
+        <label>
+            Amount: {{user.coins}}
+        </label>
+        <label>
+            <i class="btc icon"></i> Value:
+            {{bitcoinRate * user.coins}}
+        </label>
+    </section>
+    <app-moves-list [showAll]="true"></app-moves-list>
 </div>
-<br>
-<br>
-<app-moves-list [showAll]="true"></app-moves-list>
